@@ -138,17 +138,17 @@
 				{
 					"selector": "typeLike",
 					"format": ["PascalCase"],
-					"prefix": ["Type"]
+					"prefix": ["T"]
 				},
 				{
 					"selector": "interface",
 					"format": ["PascalCase"],
-					"prefix": ["Interface"]
+					"prefix": ["I"]
 				},
 				{
 					"selector": "enum",
 					"format": ["PascalCase"],
-					"prefix": ["Enum"]
+					"prefix": ["E"]
 				}
 
 			]
