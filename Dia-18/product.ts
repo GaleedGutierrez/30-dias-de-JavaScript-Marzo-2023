@@ -2,7 +2,7 @@ interface InterfaceProduct {
 	name: string,
 	price: number,
 	quantity: number,
-	addToCart: () => void
+	addToCart: () => void;
 }
 
 export class Product implements InterfaceProduct {

@@ -2,10 +2,10 @@ import { Product } from './product.js';
 
 interface InterfaceCart {
 	list: Product[]
-	addProduct: (product: Product) => void,
-	deleteProduct: (product: Product) => void,
-	calculateTotal: () => void,
-	getProducts: () => void,
+	addProduct: (product: Article | Service) => string,
+	deleteProduct: (product: Article | Service) => void,
+	calculateTotal: () => number,
+	getProducts: () => Product[],
 }
 
 export class Article extends Product {
@@ -45,13 +45,15 @@ export class Service extends Product {
 export class Cart implements InterfaceCart {
 	list: Product[] = [];
 
-	addProduct (product: Product) {
+	addProduct (product: Article | Service) {
+		const { addToCart } = product;
+
 		this.list.push(product);
 
-		return product.addToCart();
+		return addToCart();
 	}
 
-	deleteProduct (product: Product) {
+	deleteProduct (product: Article | Service) {
 		const INDEX = this.list.findIndex((item) => item.name === product.name);
 
 		this.list.splice(INDEX, 1);
