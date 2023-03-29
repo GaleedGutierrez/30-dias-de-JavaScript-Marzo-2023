@@ -153,5 +153,6 @@
 
 			]
 		}
+		// "@typescript-eslint/comma-dangle": ["error", "only-multiline"]
 	// "hexagonal-architecture/enforce": ["error"]
 }
