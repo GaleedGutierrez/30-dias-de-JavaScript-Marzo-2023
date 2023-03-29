@@ -17,4 +17,3 @@ export function sendEmail(email, subject, body) {
 sendEmail('test@mail.com', '2', 'Únete a los 30 días de JS')
     .then((result) => console.log(result))
     .catch((error) => console.log(error));
-//# sourceMappingURL=clase-35.js.map

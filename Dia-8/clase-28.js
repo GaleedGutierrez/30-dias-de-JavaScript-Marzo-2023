@@ -14,4 +14,3 @@ const array = [
 const myFunction = (pet) => pet?.name;
 const xd = myMap(array, myFunction);
 console.log(xd);
-//# sourceMappingURL=clase-28.js.map

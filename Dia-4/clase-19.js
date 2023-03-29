@@ -31,4 +31,3 @@ const xd = getStudentAverage([
 ]);
 console.log(xd);
 export {};
-//# sourceMappingURL=clase-19.js.map

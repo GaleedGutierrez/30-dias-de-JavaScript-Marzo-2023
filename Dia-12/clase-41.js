@@ -50,4 +50,3 @@ const registeredUsers = [
 ];
 const xd = validateForm(formData, registeredUsers);
 console.log(xd);
-//# sourceMappingURL=clase-41.js.map
