@@ -36,4 +36,3 @@ const cats2 = [
     }
 ];
 console.log(findFamousCats(cats1));
-//# sourceMappingURL=clase-17.js.map

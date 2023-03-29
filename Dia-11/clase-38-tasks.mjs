@@ -14,4 +14,3 @@ function common(message) {
     const PROMISE = new Promise((resolve) => setTimeout(() => resolve(message), 300));
     return PROMISE;
 }
-//# sourceMappingURL=clase-38-tasks.mjs.map

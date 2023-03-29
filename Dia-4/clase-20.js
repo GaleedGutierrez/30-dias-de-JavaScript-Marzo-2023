@@ -24,4 +24,3 @@ const xd = findLargestPalindrome(['wow', 'level', 'world', 'hello', 'racecar']);
 const xd2 = findLargestPalindrome(['Platzi', 'javascript', 'html', 'css']);
 console.log({ xd, xd2 });
 // console.log({ xd2 });
-//# sourceMappingURL=clase-20.js.map

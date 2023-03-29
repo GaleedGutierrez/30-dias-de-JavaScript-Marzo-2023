@@ -7,4 +7,3 @@ export async function runCode() {
     return STRINGS;
 }
 console.log(await runCode());
-//# sourceMappingURL=clase-38.js.map

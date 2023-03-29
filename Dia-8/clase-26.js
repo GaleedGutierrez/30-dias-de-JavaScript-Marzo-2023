@@ -21,4 +21,3 @@ calculator.subtract(-10);
 const xd = calculator.clear();
 console.log(xd);
 export {};
-//# sourceMappingURL=clase-26.js.map

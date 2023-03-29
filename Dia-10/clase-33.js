@@ -66,4 +66,3 @@ planner.addTask({
 // const xd = planner.getPendingTasks();
 // console.log(planner.filterTasksByTag('XD'));
 planner.updateTask(2, { name: 'CCCC', id: 100000000 });
-//# sourceMappingURL=clase-33.js.map

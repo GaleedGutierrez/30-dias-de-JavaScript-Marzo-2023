@@ -20,4 +20,3 @@ export function runCode() {
 }
 runCode()
     .then(response => console.log(response));
-//# sourceMappingURL=clase-37.js.map
