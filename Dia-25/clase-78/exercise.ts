@@ -2,7 +2,19 @@ interface IData {
 	[key: number]: any,
 }
 
-export class MyArray {
+interface IMyArray {
+	length: number,
+	data: IData,
+	map(func: any): MyArray,
+	filter(func: any): MyArray,
+	push(item: any): void,
+	pop(): any,
+	join(character: string): string,
+	shift(): any,
+	unshift(item: any): number | undefined
+}
+
+export class MyArray implements IMyArray {
 	length: number;
 	data: IData;
 	constructor () {
@@ -10,7 +22,7 @@ export class MyArray {
 		this.data = {};
 	}
 
-	map (func: any) {
+	map (func: any): MyArray {
 		const { data } = this;
 		const NEW_ARRAY = new MyArray();
 
@@ -23,7 +35,7 @@ export class MyArray {
 		return NEW_ARRAY;
 	}
 
-	filter (func: any) {
+	filter (func: any): MyArray {
 		const { data } = this;
 		const NEW_ARRAY = new MyArray;
 		let counter = 0;
@@ -56,7 +68,7 @@ export class MyArray {
 		return DELETED;
 	}
 
-	join (character = ',') {
+	join (character = ','): string {
 		const { data } = this;
 		let newString = '';
 		const LENGTH = this.length - 1;
@@ -70,7 +82,7 @@ export class MyArray {
 		return newString;
 	}
 
-	shift (): void {
+	shift (): any {
 		const { data } = this;
 		const LENGTH_STOP = this.length - 1;
 		const DELETE = this.data['0'];
@@ -95,7 +107,7 @@ export class MyArray {
 		return DELETE;
 	}
 
-	unshift (item: any) {
+	unshift (item: any): number | undefined {
 		if (item === undefined) return;
 		const { data } = this;
 
