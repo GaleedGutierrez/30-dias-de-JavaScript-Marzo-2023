@@ -1,32 +1,47 @@
 {
-  "name": "30-dias-de-javascript-marzo-2023",
-  "version": "1.0.0",
-  "description": "Reto de 30 días de JavaScript de Platzi",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GaleedGutierrez/30-dias-de-JavaScript-Marzo-2023.git"
-  },
-  "keywords": [
-    "JavaScript",
-    "TypeScript"
-  ],
-  "author": "Galeed Gutierrez <galeedeveloper@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/GaleedGutierrez/30-dias-de-JavaScript-Marzo-2023/issues"
-  },
-  "homepage": "https://github.com/GaleedGutierrez/30-dias-de-JavaScript-Marzo-2023#readme",
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.56.0",
-    "@typescript-eslint/parser": "^5.56.0",
-    "eslint": "8.36.0",
-    "eslint-plugin-react": "^7.32.2",
-    "ts-node": "10.9.1",
-    "typescript": "5.0.2"
-  },
-  "type": "module"
+	"name": "30-dias-de-javascript-marzo-2023",
+	"version": "1.0.0",
+	"description": "Reto de 30 días de JavaScript de Platzi",
+	"main": "index.js",
+	"scripts": {
+		"prepare": "husky install",
+		"lint": "eslint ./",
+		"lint:fix": "npx eslint --fix ./"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/GaleedGutierrez/30-dias-de-JavaScript-Marzo-2023.git"
+	},
+	"keywords": [
+		"JavaScript",
+		"TypeScript"
+	],
+	"author": "Galeed Gutierrez <galeedeveloper@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/GaleedGutierrez/30-dias-de-JavaScript-Marzo-2023/issues"
+	},
+	"homepage": "https://github.com/GaleedGutierrez/30-dias-de-JavaScript-Marzo-2023#readme",
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.59.1",
+		"@typescript-eslint/parser": "^5.59.1",
+		"eslint": "^8.39.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-check-file": "^2.2.0",
+		"eslint-plugin-editorconfig": "^4.0.2",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-simple-import-sort": "^10.0.0",
+		"eslint-plugin-unused-imports": "^2.0.0",
+		"husky": "^8.0.0",
+		"lint-staged": "^13.2.2",
+		"markdownlint": "^0.28.2",
+		"prettier": "2.8.8",
+		"ts-node": "^10.9.1",
+		"typescript": "^5.0.2"
+	},
+	"type": "module",
+	"lint-staged": {
+		"*.(j|t)s": "eslint --fix"
+	}
 }

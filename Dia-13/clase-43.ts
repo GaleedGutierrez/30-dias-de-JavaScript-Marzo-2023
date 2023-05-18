@@ -1,14 +1,21 @@
 import { InterfaceProduct, InterfaceTotal } from './interface.mjs';
 
-export function groupProducts (products: InterfaceProduct[], category: string): InterfaceTotal {
-	const PRODUCTS_SELECTED = products.filter((product) => product.category === category);
+export function groupProducts(
+	products: InterfaceProduct[],
+	category: string
+): InterfaceTotal {
+	const PRODUCTS_SELECTED = products.filter(
+		(product) => product.category === category
+	);
 	const PRODUCTS_NAME = PRODUCTS_SELECTED.map((product) => product.name);
 	const NAMES = PRODUCTS_NAME.join(', ');
 	const PRICES = PRODUCTS_SELECTED.map((products) => products.price);
-	const totalPrice = PRICES.reduce((acumulador, actual) => acumulador + actual);
+	const totalPrice = PRICES.reduce(
+		(acumulador, actual) => acumulador + actual
+	);
 	const FINAL = {
-		products : NAMES,
-		totalPrice
+		products: NAMES,
+		totalPrice,
 	};
 
 	return FINAL;

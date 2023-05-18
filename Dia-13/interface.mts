@@ -1,10 +1,10 @@
 export interface InterfaceProduct {
-	name: string,
-	category: string,
-	price: number
+	name: string;
+	category: string;
+	price: number;
 }
 
 export interface InterfaceTotal {
-	products: string,
-	totalPrice: number
+	products: string;
+	totalPrice: number;
 }

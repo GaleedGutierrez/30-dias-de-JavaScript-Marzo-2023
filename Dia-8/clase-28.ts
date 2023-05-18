@@ -1,4 +1,4 @@
-export function myMap (array: any[], func: any) {
+export function myMap(array: any[], func: any) {
 	const RESULT: any[] = [];
 
 	for (let i = 0; i < array.length; i++) {
@@ -13,7 +13,7 @@ export function myMap (array: any[], func: any) {
 
 const array = [
 	{ name: 'michi', age: 2 },
-	{ name: 'firulais', age: 6 }
+	{ name: 'firulais', age: 6 },
 ];
 
 const myFunction = (pet: any) => pet?.name;

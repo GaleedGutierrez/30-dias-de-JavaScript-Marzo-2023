@@ -1,10 +1,10 @@
 interface InterfaceProduct {
-	name: string,
-	price: number,
-	inStock: boolean
+	name: string;
+	price: number;
+	inStock: boolean;
 }
 
-export function sortByAvailabilityAndPrice (products: InterfaceProduct[]) {
+export function sortByAvailabilityAndPrice(products: InterfaceProduct[]) {
 	const OUT_OF_STOCK = products.filter((product) => !product.inStock);
 	const IN_STOCK = products.filter((product) => product.inStock);
 

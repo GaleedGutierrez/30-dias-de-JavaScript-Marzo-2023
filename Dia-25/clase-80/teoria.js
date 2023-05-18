@@ -1,12 +1,12 @@
 class HashTable {
-	constructor (size) {
+	constructor(size) {
 		// Dentro del constructor se inicializa un array con un tamaño arbitrario
 		// Para asignarlo como el tamaño total de buckets en nuestra hashTable
 		this.buckets = new Array(size);
 		this.numBuckets = this.buckets.length;
 	}
 
-	hash (key) {
+	hash(key) {
 		// Esta función toma una "key" (puede ser una cadena, número, etc.)
 		// Para poder calcular el índice del bucket donde el valor será almacenado
 		let total = 0;
@@ -15,17 +15,16 @@ class HashTable {
 		// Para calcular el hash, se suman los valores ASCII de cada caracter de la key
 		// y se toma el resto de la división de esta suma entre el total de buckets.
 		for (let i = 0; i < key.length; i++) {
-
 			total += key.charCodeAt(i);
 		}
 
 		return total % this.numBuckets;
 	}
 
-	insert (key, value) {
+	insert(key, value) {
 		// Este método toma una key y un value, y los almacena en la hash table
 		// Primero se calcula el índice usando la función hash
-		let index = this.hash(key);
+		const index = this.hash(key);
 
 		// si ese bucket no existe, se inicializa como un array vacío.
 		if (!this.buckets[index]) {
@@ -33,13 +32,13 @@ class HashTable {
 		}
 
 		// Luego se agrega un arreglo con la key y el value al bucket
-		this.buckets[index].push([ key, value ]);
+		this.buckets[index].push([key, value]);
 	}
 
-	get (key) {
+	get(key) {
 		// Esta función toma una key y retorna el valor almacenado en la hash table
 		// Primero se calcula el índice usando la función hash
-		let index = this.hash(key);
+		const index = this.hash(key);
 
 		// si ese bucket no existe, se retorna null.
 		if (!this.buckets[index]) {
@@ -49,7 +48,6 @@ class HashTable {
 		// Si el bucket existe, se recorre el array en busca de un arreglo
 		// que tenga la key especificada
 		for (let i = 0; i < this.buckets[index].length; i++) {
-
 			// Si se encuentra ese bucket, se retorna su value correspondiente.
 			if (this.buckets[index][i][0] === key) {
 				return this.buckets[index][i][1];
@@ -60,10 +58,10 @@ class HashTable {
 		return null;
 	}
 
-	retrieveAll () {
+	retrieveAll() {
 		// Esta función retorna un array con todos los valores almacenados
 		// Se recorren todos los buckets y, si existen, se agrega cada value a un array
-		let allValues = [];
+		const allValues = [];
 
 		for (let i = 0; i < this.numBuckets; i++) {
 			if (this.buckets[i]) {

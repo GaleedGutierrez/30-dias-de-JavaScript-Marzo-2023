@@ -1,6 +1,7 @@
-export function arrayModified () {
+/* eslint-disable no-extend-native */
+export function arrayModified() {
 	Array.prototype.myFilter = function (callback: any) {
-		const FILTER: any[] = [];
+		const FILTER: unknown[] = [];
 
 		for (const ITEM of this) {
 			if (callback(ITEM)) FILTER.push(ITEM);
@@ -14,17 +15,15 @@ arrayModified();
 
 const arr = [
 	{
-		name : 'Juan',
-		age  : 10,
+		name: 'Juan',
+		age: 10,
 	},
 	{
-		name : 'Pedro',
-		age  : 20,
+		name: 'Pedro',
+		age: 20,
 	},
 	{
-		name : 'Maria',
-		age  : 30,
+		name: 'Maria',
+		age: 30,
 	},
 ];
-
-console.log(arr.myFilter((person) => person.age > 18));

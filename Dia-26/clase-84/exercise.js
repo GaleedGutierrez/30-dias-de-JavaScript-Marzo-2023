@@ -1,7 +1,7 @@
-export function taskManager () {
+export function taskManager() {
 	const TASK_LIST = new Map();
 
-	function addTask (task, tags) {
+	function addTask(task, tags) {
 		task = task.toLocaleLowerCase();
 
 		if (!TASK_LIST.get(task)) {
@@ -19,13 +19,13 @@ export function taskManager () {
 		}
 	}
 
-	function printTasks () {
+	function printTasks() {
 		return TASK_LIST;
 	}
 
 	return {
 		addTask,
-		printTasks
+		printTasks,
 	};
 }
 
@@ -35,10 +35,10 @@ const myTaskManager = taskManager();
 // myTaskManager.addTask('Sacar al perro', ['mascotas']);
 // myTaskManager.addTask('Hacer ejercicio', ['salud']);
 // console.log(myTaskManager.printTasks());
-myTaskManager.addTask('Comprar leche', [ 'compras', 'urgente' ]);
-myTaskManager.addTask('Sacar al perro', ['mascotas']);
-myTaskManager.addTask('Hacer ejercicio', ['salud']);
-myTaskManager.addTask('Comprar leche', ['lácteos']);
+myTaskManager.addTask("Comprar leche", ["compras", "urgente"]);
+myTaskManager.addTask("Sacar al perro", ["mascotas"]);
+myTaskManager.addTask("Hacer ejercicio", ["salud"]);
+myTaskManager.addTask("Comprar leche", ["lácteos"]);
 console.log(myTaskManager.printTasks());
 // function removeDuplicates (values: string[]): string[] {
 // 	const NOT_REPEAT = new Set(values);

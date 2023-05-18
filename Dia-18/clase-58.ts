@@ -1,23 +1,19 @@
 import { Product } from './product.js';
 
 interface InterfaceCart {
-	list: Product[]
-	addProduct: (product: Article | Service) => string,
-	deleteProduct: (product: Article | Service) => void,
-	calculateTotal: () => number,
-	getProducts: () => Product[],
+	list: Product[];
+	addProduct: (product: Article | Service) => string;
+	deleteProduct: (product: Article | Service) => void;
+	calculateTotal: () => number;
+	getProducts: () => Product[];
 }
 
 export class Article extends Product {
-	constructor (
-		name: string,
-		price: number,
-		quantity: number
-	) {
+	constructor(name: string, price: number, quantity: number) {
 		super(name, price, quantity);
 	}
 
-	addToCart () {
+	addToCart() {
 		const { name, quantity } = this;
 		const MESSAGE = `Agregando ${name} unidades del artículo ${quantity} al carrito`;
 
@@ -26,15 +22,11 @@ export class Article extends Product {
 }
 
 export class Service extends Product {
-	constructor (
-		name: string,
-		price: number,
-		quantity: number
-	) {
+	constructor(name: string, price: number, quantity: number) {
 		super(name, price, quantity);
 	}
 
-	addToCart () {
+	addToCart() {
 		const { name } = this;
 		const MESSAGE = `Agregando el servicio ${name} al carrito`;
 
@@ -45,7 +37,7 @@ export class Service extends Product {
 export class Cart implements InterfaceCart {
 	list: Product[] = [];
 
-	addProduct (product: Article | Service) {
+	addProduct(product: Article | Service) {
 		const { addToCart } = product;
 
 		this.list.push(product);
@@ -53,13 +45,13 @@ export class Cart implements InterfaceCart {
 		return addToCart();
 	}
 
-	deleteProduct (product: Article | Service) {
+	deleteProduct(product: Article | Service) {
 		const INDEX = this.list.findIndex((item) => item.name === product.name);
 
 		this.list.splice(INDEX, 1);
 	}
 
-	calculateTotal () {
+	calculateTotal() {
 		const { list } = this;
 		const PRICES = list.map((product) => product.price * product.quantity);
 		const TOTAL = PRICES.reduce((total, price) => total + price);
@@ -67,7 +59,7 @@ export class Cart implements InterfaceCart {
 		return TOTAL;
 	}
 
-	getProducts () {
+	getProducts() {
 		return this.list;
 	}
 }

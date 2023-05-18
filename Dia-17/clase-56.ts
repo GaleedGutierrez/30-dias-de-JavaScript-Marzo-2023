@@ -1,26 +1,21 @@
-interface InterfaceCar {
-	brand: string,
-	model: string,
-	year: number,
-	mileage: number,
-	state: boolean
-	turnOn: () => void,
-	turnOff: () => void,
-	drive: (kilometers: number) => void
-}
-
-export class Car implements InterfaceCar {
+interface ICar {
 	brand: string;
 	model: string;
 	year: number;
 	mileage: number;
 	state: boolean;
-	constructor (
-		brand: string,
-		model: string,
-		year: number,
-		mileage: number,
-	) {
+	turnOn: () => void;
+	turnOff: () => void;
+	drive: (kilometers: number) => void;
+}
+
+export class Car implements ICar {
+	brand: string;
+	model: string;
+	year: number;
+	mileage: number;
+	state: boolean;
+	constructor(brand: string, model: string, year: number, mileage: number) {
 		this.brand = brand;
 		this.model = model;
 		this.year = year;
@@ -28,15 +23,15 @@ export class Car implements InterfaceCar {
 		this.state = false;
 	}
 
-	turnOn () {
+	turnOn() {
 		this.state = true;
 	}
 
-	turnOff () {
+	turnOff() {
 		this.state = false;
 	}
 
-	drive (kilometers: number) {
+	drive(kilometers: number) {
 		const { state } = this;
 
 		if (!state) throw new Error('El auto está apagado');
@@ -48,7 +43,6 @@ export class Car implements InterfaceCar {
 }
 
 const toyota = new Car('Toyota', 'Corolla', 2020, 0);
-
 
 toyota.turnOff();
 toyota.drive(100);

@@ -1,7 +1,7 @@
 interface IMessages {
-	history: string[],
-	sendMessage(text: string): void,
-	getHistory(): string[],
+	history: string[];
+	sendMessage(text: string): void;
+	getHistory(): string[];
 }
 
 export class Messages implements IMessages {
@@ -11,11 +11,11 @@ export class Messages implements IMessages {
 	// this.history = [];
 	// }
 
-	sendMessage (text: string): void {
+	sendMessage(text: string): void {
 		this.history.push(text);
 	}
 
-	getHistory (): string[] {
+	getHistory(): string[] {
 		return this.history;
 	}
 }

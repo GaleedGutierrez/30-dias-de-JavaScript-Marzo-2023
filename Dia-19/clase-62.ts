@@ -1,34 +1,34 @@
 interface IAnimal {
-	name: string,
-	age: number,
-	specie: string,
+	name: string;
+	age: number;
+	specie: string;
 	getInfo: () => {
-		name: string,
-		age: number,
-		specie: string,
-	},
+		name: string;
+		age: number;
+		specie: string;
+	};
 }
 
 interface IMammal extends IAnimal {
-	hasFur: boolean,
+	hasFur: boolean;
 	getInfo: () => {
-		name: string,
-		age: number,
-		specie: string,
-		hasFur: boolean,
-	},
+		name: string;
+		age: number;
+		specie: string;
+		hasFur: boolean;
+	};
 }
 
 interface IDog extends IMammal {
-	breed: string,
+	breed: string;
 	getInfo: () => {
-		name: string,
-		age: number,
-		specie: string,
-		hasFur: boolean,
-		breed: string,
-	},
-	bark: () => string,
+		name: string;
+		age: number;
+		specie: string;
+		hasFur: boolean;
+		breed: string;
+	};
+	bark: () => string;
 }
 
 export class Animal implements IAnimal {
@@ -36,23 +36,19 @@ export class Animal implements IAnimal {
 	age: number;
 	specie: string;
 
-	constructor (
-		name: string,
-		age: number,
-		specie: string,
-	) {
+	constructor(name: string, age: number, specie: string) {
 		this.name = name;
 		this.age = age;
 		this.specie = specie;
 	}
 
-	getInfo () {
+	getInfo() {
 		const { name, age, specie } = this;
 
 		return {
 			name,
 			age,
-			specie
+			specie,
 		};
 	}
 }
@@ -60,24 +56,19 @@ export class Animal implements IAnimal {
 export class Mammal extends Animal implements IMammal {
 	hasFur: boolean;
 
-	constructor (
-		name: string,
-		age: number,
-		specie: string,
-		hasFur: boolean
-	) {
+	constructor(name: string, age: number, specie: string, hasFur: boolean) {
 		super(name, age, specie);
 		this.hasFur = hasFur;
 	}
 
-	getInfo () {
+	getInfo() {
 		const { name, age, specie } = super.getInfo();
 
 		return {
 			name,
 			age,
 			specie,
-			hasFur : this.hasFur
+			hasFur: this.hasFur,
 		};
 	}
 }
@@ -85,11 +76,11 @@ export class Mammal extends Animal implements IMammal {
 export class Dog extends Mammal implements IDog {
 	breed: string;
 
-	constructor (
+	constructor(
 		name: string,
 		age: number,
 		specie: string,
-		hasFur: boolean,
+		hasFur: boolean
 		// breed: string
 	) {
 		super(name, age, specie, hasFur);
@@ -97,7 +88,7 @@ export class Dog extends Mammal implements IDog {
 		this.breed = specie;
 	}
 
-	getInfo () {
+	getInfo() {
 		const { name, age, specie, hasFur } = super.getInfo();
 
 		return {
@@ -105,11 +96,11 @@ export class Dog extends Mammal implements IDog {
 			age,
 			specie,
 			hasFur,
-			breed : this.breed
+			breed: this.breed,
 		};
 	}
 
-	bark () {
+	bark() {
 		return 'woof!';
 	}
 }

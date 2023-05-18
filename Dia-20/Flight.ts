@@ -2,29 +2,29 @@ import { Passenger } from './Passenger.js';
 import { Reservation } from './Reservation.js';
 
 export interface IFlight {
-	origin: string,
-	destination: string,
-	date: string,
-	capacity: number,
-	price: number,
-	passengers: IPassenger[],
-	sellTicket: (passenger: Passenger) => Reservation | void
+	origin: string;
+	destination: string;
+	date: string;
+	capacity: number;
+	price: number;
+	passengers: IPassenger[];
+	sellTicket: (passenger: Passenger) => Reservation | void;
 }
 
 export interface IPassenger {
-	fullName: string,
-	age: number,
+	fullName: string;
+	age: number;
 }
 
 export class Flight implements IFlight {
 	passengers: IPassenger[] = [];
 
-	constructor (
+	constructor(
 		public origin: string,
 		public destination: string,
 		public date: string,
 		public capacity: number,
-		public price: number,
+		public price: number
 	) {
 		this.origin = origin;
 		this.destination = destination;
@@ -33,7 +33,7 @@ export class Flight implements IFlight {
 		this.price = price;
 	}
 
-	public sellTicket (passenger: Passenger): Reservation | void {
+	public sellTicket(passenger: Passenger): Reservation | void {
 		const { capacity } = this;
 		const IS_RIGHT_CAPACITY = capacity > 0;
 
@@ -50,8 +50,8 @@ export class Flight implements IFlight {
 			price,
 		};
 		const DATA_PASSENGER = {
-			fullName : `${name} ${lastName}`,
-			age      : age
+			fullName: `${name} ${lastName}`,
+			age,
 		};
 
 		this.passengers.push(DATA_PASSENGER);
