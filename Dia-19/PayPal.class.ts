@@ -1,29 +1,29 @@
 import { IPay, Pay } from './Pay.class.js';
 
 interface IPayPal extends IPay {
-	email: string,
+	email: string;
 	makePay: (quantity: number) => {
-		realized: boolean
-		quantity: number,
-		email: string,
-		platform: string,
-	}
+		realized: boolean;
+		quantity: number;
+		email: string;
+		platform: string;
+	};
 }
 
 export class PayPal extends Pay implements IPayPal {
 	email: string;
 
-	constructor (email: string) {
+	constructor(email: string) {
 		super();
 		this.email = email;
 	}
 
-	makePay (quantity: number) {
+	makePay(quantity: number) {
 		return {
-			realized : true,
+			realized: true,
 			quantity,
-			platform : 'PayPal',
-			email    : this.email,
+			platform: 'PayPal',
+			email: this.email,
 		};
 	}
 }

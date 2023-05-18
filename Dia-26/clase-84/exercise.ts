@@ -1,9 +1,9 @@
-type TTaskList = Map<string, Set<string>>
+type TTaskList = Map<string, Set<string>>;
 
-export function taskManager () {
+export function taskManager() {
 	const TASK_LIST: TTaskList = new Map();
 
-	function addTask (task: string, tags: string[]): void {
+	function addTask(task: string, tags: string[]): void {
 		task = task.toLocaleLowerCase();
 
 		if (!TASK_LIST.get(task)) {
@@ -21,19 +21,17 @@ export function taskManager () {
 		}
 	}
 
-	function printTasks (): TTaskList {
+	function printTasks(): TTaskList {
 		return TASK_LIST;
 	}
 
 	return {
 		addTask,
-		printTasks
+		printTasks,
 	};
 }
 
 const myTaskManager = taskManager();
-
-
 
 // myTaskManager.addTask('Comprar leche', [ 'compras', 'urgente' ]);
 // myTaskManager.addTask('Sacar al perro', ['mascotas']);
@@ -41,19 +39,12 @@ const myTaskManager = taskManager();
 
 // console.log(myTaskManager.printTasks());
 
-
-
-
-myTaskManager.addTask('Comprar leche', [ 'compras', 'urgente' ]);
+myTaskManager.addTask('Comprar leche', ['compras', 'urgente']);
 myTaskManager.addTask('Sacar al perro', ['mascotas']);
 myTaskManager.addTask('Hacer ejercicio', ['salud']);
 myTaskManager.addTask('Comprar leche', ['lácteos']);
 
 console.log(myTaskManager.printTasks());
-
-
-
-
 
 // function removeDuplicates (values: string[]): string[] {
 // 	const NOT_REPEAT = new Set(values);

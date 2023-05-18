@@ -10,5 +10,5 @@ export interface InterfaceStudentAverage {
 
 export interface InterfaceFamousKitty {
 	name: string;
-	followers: number[]
+	followers: number[];
 }

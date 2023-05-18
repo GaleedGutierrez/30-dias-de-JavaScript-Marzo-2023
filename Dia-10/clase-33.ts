@@ -1,6 +1,6 @@
 import { InterfaceTask, InterfaceTaskUpdate } from './interfaces.mjs';
 
-export function createTaskPlanner () {
+export function createTaskPlanner() {
 	const TASKS: InterfaceTask[] = [];
 
 	const addTask = (task: InterfaceTask) => {
@@ -9,7 +9,9 @@ export function createTaskPlanner () {
 	};
 
 	const removeTask = (value: number | string) => {
-		const index = TASKS.findIndex((task) => task.id === value || task.name === value);
+		const index = TASKS.findIndex(
+			(task) => task.id === value || task.name === value
+		);
 
 		TASKS.splice(index, 1);
 		// TASKS = (typeof(value) === 'number')
@@ -22,19 +24,22 @@ export function createTaskPlanner () {
 	const getCompletedTasks = () => TASKS.filter((task) => task.completed);
 
 	const markTaskAsCompleted = (value: number | string) => {
-		const TASK = TASKS.find((task) => task.id === value || task.name === value);
+		const TASK = TASKS.find(
+			(task) => task.id === value || task.name === value
+		);
 		// const INDEX = (typeof(value) === 'number')
 		// 	? TASKS.findIndex((task) => task.id === value)
 		// 	: TASKS.findIndex((task) => task.name === value);
 
 		// TASKS[INDEX].completed = true;
-		if (TASK)
-			TASK.completed = true;
+		if (TASK) TASK.completed = true;
 	};
 
-	const getSortedTasksByPriority = () => [...TASKS].sort((taskA, taskB) => taskA.priority - taskB.priority);
+	const getSortedTasksByPriority = () =>
+		[...TASKS].sort((taskA, taskB) => taskA.priority - taskB.priority);
 
-	const filterTasksByTag = (tag: string) => TASKS.filter((task) => task.tags.some((tagName) => tagName === tag));
+	const filterTasksByTag = (tag: string) =>
+		TASKS.filter((task) => task.tags.some((tagName) => tagName === tag));
 
 	const updateTask = (taskId: number, updates: InterfaceTaskUpdate) => {
 		const INDEX = TASKS.findIndex((task) => task.id === taskId);
@@ -58,22 +63,22 @@ export function createTaskPlanner () {
 const planner = createTaskPlanner();
 
 planner.addTask({
-	id       : 1,
-	name     : 'Comprar leche',
-	priority : 1,
-	tags     : [ 'XD', 'home' ]
+	id: 1,
+	name: 'Comprar leche',
+	priority: 1,
+	tags: ['XD', 'home'],
 });
 planner.addTask({
-	id       : 2,
-	name     : 'Comprar MANTECA',
-	priority : 3,
-	tags     : [ 'shopping', 'home' ]
+	id: 2,
+	name: 'Comprar MANTECA',
+	priority: 3,
+	tags: ['shopping', 'home'],
 });
 planner.addTask({
-	id       : 2,
-	name     : 'Comprar QUESO',
-	priority : 2,
-	tags     : [ 'queso', 'home' ]
+	id: 2,
+	name: 'Comprar QUESO',
+	priority: 2,
+	tags: ['queso', 'home'],
 });
 
 // planner.removeTask('Comprar leche');

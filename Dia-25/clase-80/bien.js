@@ -2,13 +2,13 @@ export class ContactList {
 	size;
 	buckets;
 	numBuckets;
-	constructor (size) {
+	constructor(size) {
 		this.size = size;
 		this.buckets = new Array(size);
 		this.numBuckets = this.buckets.length;
 	}
 
-	hash (name) {
+	hash(name) {
 		let total = 0;
 
 		for (let i = 0; i < name.length; i++) {
@@ -20,23 +20,23 @@ export class ContactList {
 		return HASH;
 	}
 
-	insert (name, phone) {
+	insert(name, phone) {
 		const ADDRESS = this.hash(name);
 
 		if (!this.buckets[ADDRESS]) {
 			this.buckets[ADDRESS] = [];
 		}
 
-		this.buckets[ADDRESS].push([ name, phone ]);
+		this.buckets[ADDRESS].push([name, phone]);
 	}
 
-	get (name) {
+	get(name) {
 		const INDEX = this.#checkContact(name);
 
-		if (INDEX === null)
-			return null;
+		if (INDEX === null) return null;
+
 		const ADDRESS = this.hash(name);
-		const [ NAME, PHONE ] = this.buckets[ADDRESS][INDEX];
+		const [NAME, PHONE] = this.buckets[ADDRESS][INDEX];
 
 		// for (let i = 0; i < CURRENT_BUCKET.length; i++) {
 		// 	if (CURRENT_BUCKET[i][0] === name) {
@@ -46,49 +46,52 @@ export class ContactList {
 		return PHONE;
 	}
 
-	retrieveAll () {
-	// const LIST: TContact[] = [];
-	// for (let i = 0; i < this.buckets.length; i++) {
-	// 	if (this.buckets[i] === undefined) continue;
-	// 	for (let j = 0; j < this.buckets[i].length; j++) {
-	// 		if (this.buckets[i][j]) LIST.push(this.buckets[i][j]);
-	// 	}
-	// }
-	// return LIST;
-	// chat gpt
+	retrieveAll() {
+		// const LIST: TContact[] = [];
+		// for (let i = 0; i < this.buckets.length; i++) {
+		// 	if (this.buckets[i] === undefined) continue;
+		// 	for (let j = 0; j < this.buckets[i].length; j++) {
+		// 		if (this.buckets[i][j]) LIST.push(this.buckets[i][j]);
+		// 	}
+		// }
+		// return LIST;
+		// chat gpt
 		const CONTACT_LIST = this.buckets.flat();
-		const CONTACTS_BOOKED = CONTACT_LIST.filter(contact => contact !== undefined);
+		const CONTACTS_BOOKED = CONTACT_LIST.filter(
+			(contact) => contact !== undefined
+		);
 
 		return CONTACTS_BOOKED;
 	}
 
-	delete (name) {
+	delete(name) {
 		const INDEX = this.#checkContact(name);
 
-		if (INDEX === null)
-			return null;
+		if (INDEX === null) return null;
+
 		const ADDRESS = this.hash(name);
 		const LIST_CONTACT = this.buckets[ADDRESS];
 
 		LIST_CONTACT.splice(INDEX, 1);
-	// for (let i = 0; i < CURRENT_BUCKET.length; i++) {
-	// 	if (CURRENT_BUCKET[i][0] === name) {
-	// 		CURRENT_BUCKET.splice(i, 1);
-	// 		break;
-	// 	}
-	// }
+		// for (let i = 0; i < CURRENT_BUCKET.length; i++) {
+		// 	if (CURRENT_BUCKET[i][0] === name) {
+		// 		CURRENT_BUCKET.splice(i, 1);
+		// 		break;
+		// 	}
+		// }
 	}
 
-	#checkContact (name) {
+	#checkContact(name) {
 		const ADDRESS = this.hash(name);
 		const CURRENT_BUCKET = this.buckets[ADDRESS];
 
-		if (CURRENT_BUCKET === undefined)
-			return null;
-		const INDEX = CURRENT_BUCKET.findIndex((contact) => contact[0] === name);
+		if (CURRENT_BUCKET === undefined) return null;
 
-		if (INDEX === -1)
-			return null;
+		const INDEX = CURRENT_BUCKET.findIndex(
+			(contact) => contact[0] === name
+		);
+
+		if (INDEX === -1) return null;
 
 		return INDEX;
 	}

@@ -1,28 +1,14 @@
-interface IData {
-	[key: number]: any,
-}
-
-interface IMyArray {
-	length: number,
-	data: IData,
-	map(func: any): MyArray,
-	filter(func: any): MyArray,
-	push(item: any): void,
-	pop(): any,
-	join(character: string): string,
-	shift(): any,
-	unshift(item: any): number | undefined
-}
+import { IData, IMyArray } from './interface.mjs';
 
 export class MyArray implements IMyArray {
 	length: number;
 	data: IData;
-	constructor () {
+	constructor() {
 		this.length = 0;
 		this.data = {};
 	}
 
-	map (func: any): MyArray {
+	map(func: any): MyArray {
 		const { data } = this;
 		const NEW_ARRAY = new MyArray();
 
@@ -35,9 +21,9 @@ export class MyArray implements IMyArray {
 		return NEW_ARRAY;
 	}
 
-	filter (func: any): MyArray {
+	filter(func: any): MyArray {
 		const { data } = this;
-		const NEW_ARRAY = new MyArray;
+		const NEW_ARRAY = new MyArray();
 		let counter = 0;
 
 		for (const KEY in data) {
@@ -54,12 +40,12 @@ export class MyArray implements IMyArray {
 		return NEW_ARRAY;
 	}
 
-	push (item: any): void {
+	push(item: any): void {
 		this.data[this.length] = item;
 		this.length++;
 	}
 
-	pop (): void {
+	pop(): void {
 		const DELETED = this.data[this.length - 1];
 
 		delete this.data[this.length - 1];
@@ -68,21 +54,20 @@ export class MyArray implements IMyArray {
 		return DELETED;
 	}
 
-	join (character = ','): string {
+	join(character = ','): string {
 		const { data } = this;
 		let newString = '';
 		const LENGTH = this.length - 1;
 
 		for (const KEY in data) {
-			newString += (Number(KEY) !== LENGTH)
-				? data[KEY] + character
-				: data[KEY];
+			newString +=
+				Number(KEY) !== LENGTH ? data[KEY] + character : data[KEY];
 		}
 
 		return newString;
 	}
 
-	shift (): any {
+	shift(): any {
 		const { data } = this;
 		const LENGTH_STOP = this.length - 1;
 		const DELETE = this.data['0'];
@@ -107,8 +92,9 @@ export class MyArray implements IMyArray {
 		return DELETE;
 	}
 
-	unshift (item: any): number | undefined {
+	unshift(item: any): number | undefined {
 		if (item === undefined) return;
+
 		const { data } = this;
 
 		this.length = 1;
@@ -125,7 +111,6 @@ export class MyArray implements IMyArray {
 }
 
 // const myArray = new MyArray();
-
 
 // myArray.push(1);
 // myArray.push(2);

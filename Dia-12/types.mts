@@ -1,1 +1,1 @@
-export type TypeFormData = 'name' | 'lastname' | 'email' | 'password';
+export type TypeFormData = "name" | "lastname" | "email" | "password";

@@ -1,6 +1,6 @@
 import { doTask1, doTask2, doTask3 } from './clase-38-tasks.mjs';
 
-export async function runCode () {
+export async function runCode() {
 	const STRINGS: string[] = [];
 
 	STRINGS.push(await doTask1());
@@ -11,4 +11,3 @@ export async function runCode () {
 }
 
 console.log(await runCode());
-

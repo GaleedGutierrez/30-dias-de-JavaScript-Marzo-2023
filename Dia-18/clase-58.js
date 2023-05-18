@@ -1,48 +1,64 @@
-import { Product } from './product.js';
+import { Product } from "./product.js";
+
 export class Article extends Product {
-    constructor(name, price, quantity) {
-        super(name, price, quantity);
-    }
-    addToCart() {
-        const { name, quantity } = this;
-        const MESSAGE = `Agregando ${name} unidades del artículo ${quantity} al carrito`;
-        return MESSAGE;
-    }
+	constructor(name, price, quantity) {
+		super(name, price, quantity);
+	}
+
+	addToCart() {
+		const { name, quantity } = this;
+		const MESSAGE = `Agregando ${name} unidades del artículo ${quantity} al carrito`;
+
+		return MESSAGE;
+	}
 }
+
 export class Service extends Product {
-    constructor(name, price, quantity) {
-        super(name, price, quantity);
-    }
-    addToCart() {
-        const { name } = this;
-        const MESSAGE = `Agregando el servicio ${name} al carrito`;
-        return MESSAGE;
-    }
+	constructor(name, price, quantity) {
+		super(name, price, quantity);
+	}
+
+	addToCart() {
+		const { name } = this;
+		const MESSAGE = `Agregando el servicio ${name} al carrito`;
+
+		return MESSAGE;
+	}
 }
+
 export class Cart {
-    list = [];
-    addProduct(product) {
-        const { addToCart } = product;
-        this.list.push(product);
-        return addToCart();
-    }
-    deleteProduct(product) {
-        const INDEX = this.list.findIndex((item) => item.name === product.name);
-        this.list.splice(INDEX, 1);
-    }
-    calculateTotal() {
-        const { list } = this;
-        const PRICES = list.map((product) => product.price * product.quantity);
-        const TOTAL = PRICES.reduce((total, price) => total + price);
-        return TOTAL;
-    }
-    getProducts() {
-        return this.list;
-    }
+	list = [];
+	addProduct(product) {
+		const { addToCart } = product;
+
+		this.list.push(product);
+
+		return addToCart();
+	}
+
+	deleteProduct(product) {
+		const INDEX = this.list.findIndex((item) => item.name === product.name);
+
+		this.list.splice(INDEX, 1);
+	}
+
+	calculateTotal() {
+		const { list } = this;
+		const PRICES = list.map((product) => product.price * product.quantity);
+		const TOTAL = PRICES.reduce((total, price) => total + price);
+
+		return TOTAL;
+	}
+
+	getProducts() {
+		return this.list;
+	}
 }
-const book = new Article('Libro', 100, 2);
-const course = new Service('Curso', 120, 1);
+
+const book = new Article("Libro", 100, 2);
+const course = new Service("Curso", 120, 1);
 const cart = new Cart();
+
 console.log(cart.addProduct(book));
 console.log(cart.addProduct(course));
 console.log(cart.calculateTotal());

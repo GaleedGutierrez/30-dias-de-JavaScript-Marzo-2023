@@ -1,12 +1,12 @@
 export {};
 
-function createCalculator () {
+function createCalculator() {
 	let result = 0;
-	const add = (userNumber: number) => result += userNumber;
-	const subtract = (userNumber: number) => result -= userNumber;
-	const multiply = (userNumber: number) => result *= userNumber;
-	const divide = (userNumber: number) => result /= userNumber;
-	const clear = () => result = 0;
+	const add = (userNumber: number) => (result += userNumber);
+	const subtract = (userNumber: number) => (result -= userNumber);
+	const multiply = (userNumber: number) => (result *= userNumber);
+	const divide = (userNumber: number) => (result /= userNumber);
+	const clear = () => (result = 0);
 	const getTotal = () => result;
 
 	return {
@@ -15,7 +15,7 @@ function createCalculator () {
 		multiply,
 		divide,
 		clear,
-		getTotal
+		getTotal,
 	};
 }
 
@@ -25,6 +25,5 @@ calculator.add(10);
 calculator.subtract(-10);
 
 const xd = calculator.clear();
-
 
 console.log(xd);

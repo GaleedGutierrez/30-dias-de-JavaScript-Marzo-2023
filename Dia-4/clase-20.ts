@@ -1,4 +1,4 @@
-function findLargestPalindrome (words: string[]) {
+function findLargestPalindrome(words: string[]) {
 	const REVERSE_WORDS = words.map((word) => reverseWord(word));
 	const PALINDROMES = REVERSE_WORDS.filter((reverse, i) => {
 		const ORIGINAL = words[i];
@@ -19,14 +19,10 @@ function findLargestPalindrome (words: string[]) {
 	return theLargestPalindrome;
 }
 
-function reverseWord (word: string): string {
+function reverseWord(word: string): string {
 	const REVERSE = word.split('').reverse().join('');
 
 	return REVERSE;
 }
 
-const xd = findLargestPalindrome([ 'wow', 'level', 'world', 'hello', 'racecar' ]);
-const xd2 = findLargestPalindrome([ 'Platzi', 'javascript', 'html', 'css' ]);
-
-console.log({ xd, xd2 });
-// console.log({ xd2 });
+export {};

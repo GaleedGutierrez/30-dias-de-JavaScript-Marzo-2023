@@ -1,6 +1,6 @@
 import { doTask1, doTask2, doTask3 } from './clase-37-tasks.mjs';
 
-export function runCode () {
+export function runCode() {
 	const STRINGS: string[] = [];
 
 	const PROMISE = new Promise((response) => {
@@ -24,5 +24,4 @@ export function runCode () {
 	return PROMISE;
 }
 
-runCode()
-	.then(response => console.log(response));
+runCode().then((response) => console.log(response));

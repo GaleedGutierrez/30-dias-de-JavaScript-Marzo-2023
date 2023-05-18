@@ -3,7 +3,7 @@ import { Cash } from './Cash.class.js';
 import { Pay } from './Pay.class.js';
 // import { PayPal } from './PayPal.class.js';
 
-export function processPay (method: Pay, quantity: number) {
+export function processPay(method: Pay, quantity: number) {
 	return method.makePay(quantity);
 }
 

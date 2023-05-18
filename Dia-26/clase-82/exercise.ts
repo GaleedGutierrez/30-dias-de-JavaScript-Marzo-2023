@@ -1,4 +1,6 @@
-export function removeDuplicates (values: (number | string)[]): (number | string)[] {
+export function removeDuplicates(
+	values: (number | string)[]
+): (number | string)[] {
 	const NOT_REPEAT = new Set(values);
 	const NEW_ARRAY: (number | string)[] = [];
 	const ELEMENTS = NOT_REPEAT.values();
@@ -10,7 +12,6 @@ export function removeDuplicates (values: (number | string)[]): (number | string
 	return NEW_ARRAY;
 }
 
-
-const numbers = [ 1, 2, 3, 1, 2, 3 ];
+const numbers = [1, 2, 3, 1, 2, 3];
 
 console.log(removeDuplicates(numbers));
